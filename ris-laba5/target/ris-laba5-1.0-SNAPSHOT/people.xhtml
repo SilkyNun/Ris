@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<f:view>
+    <h:form styleClass="form">
+        <h3>Add Person</h3>
+        <p><h:inputText value="#{personBean.personToAdd.name}" /></p>
+        <p><h:inputText value="#{personBean.personToAdd.address}"/></p>
+        <p>
+            <h:commandButton value="Add" action="#{personBean.addPerson}"/>
+            <h:commandButton value="Send message" action="MESSAGES" immediate="true"/>
+        </p>
+    </h:form>
+    <h:form id="search">
+    <h3>Search</h3>
+    <h:inputText value="#{personBean.searchString}">
+        <f:ajax execute="search" render="table" event="blur"/>
+    </h:inputText>
+    </h:form>
+    <h:form>
+        <h:dataTable id="table" var="person" value="#{personBean.people}">
+            <h:column>
+                <f:facet name="header">ID</f:facet>
+                <h:inputText value="#{person.id}" disabled="true" readonly="true"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Name</f:facet>
+                <h:inputText value="#{person.name}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Address</f:facet>
+                <h:inputText value="#{person.address}"/>
+            </h:column>
+            <h:column>
+                <h:commandButton value="Edit" action="#{personBean.editPerson(person)}"/>
+            </h:column>
+            <h:column>
+                <h:commandButton value="Remove" action="#{personBean.removePerson(person)}"/>
+            </h:column>
+        </h:dataTable>
+    </h:form>
+</f:view>
+</html>

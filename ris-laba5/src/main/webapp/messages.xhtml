@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<f:view>
+    <h:form>
+        <h3>Write Message</h3>
+        <p>Sender:
+            <h:selectOneMenu value="#{messageBean.messageToAdd.sender.id}">
+                <c:forEach var="person" items="#{personBean.people}">
+                    <f:selectItem itemLabel="#{person.name}" itemValue="#{person.id}"/>
+                </c:forEach>
+            </h:selectOneMenu>
+        </p>
+        <p>Receiver:
+            <h:selectOneMenu value="#{messageBean.messageToAdd.receiver.id}">
+                <c:forEach var="person" items="#{personBean.people}">
+                    <f:selectItem itemLabel="#{person.name}" itemValue="#{person.id}"/>
+                </c:forEach>
+            </h:selectOneMenu>
+        </p>
+        <p>Message:
+            <h:inputTextarea value="#{messageBean.messageToAdd.payload}"/>
+        </p>
+        <p>
+            <h:commandButton value="Send" action="#{messageBean.addMessage}"/>
+            <h:commandButton value="Add Person" action="PEOPLE" immediate="true"/>
+        </p>
+    </h:form>
+    <h:form id="search">
+        <h3>Search</h3>
+        <h:inputText value="#{messageBean.searchString}"/>
+    </h:form>
+    <h:form>
+        <h:dataTable var="message" value="#{messageBean.messages}" >
+            <h:column>
+                <f:facet name="header">ID</f:facet>
+                <h:inputText disabled="true" value="#{message.id}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Sender ID</f:facet>
+                <h:inputText value="#{message.sender.id}" disabled="true"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Reciever ID</f:facet>
+                <h:inputText value="#{message.receiver.id}" disabled="true"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Message</f:facet>
+                <h:inputText value="#{message.payload}"/>
+            </h:column>
+            <h:column>
+                <h:commandButton value="Edit" action="#{messageBean.editMessage(message)}"/>
+            </h:column>
+            <h:column>
+                <h:commandButton value="Remove" action="#{messageBean.deleteMessage(message)}"/>
+            </h:column>
+        </h:dataTable>
+    </h:form>
+</f:view>
+</html>

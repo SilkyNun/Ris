@@ -1,0 +1,45 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="person">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element type="xs:string" name="name"/>
+                <xs:element type="xs:string" name="surname"/>
+                <xs:element type="xs:string" name="patronymic"/>
+                <xs:element type="xs:date" name="birthday"/>
+                <xs:element type="xs:boolean" name="male"/>
+                <xs:element type="xs:string" name="passport-series"/>
+                <xs:element type="xs:string" name="passport-number"/>
+                <xs:element name="residence-towns">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="residence-town" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:string" name="name"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element type="xs:string" name="current-living-address"/>
+                <xs:element type="xs:string" name="home-telephone"/>
+                <xs:element type="xs:string" name="mobile-telephone"/>
+                <xs:element type="xs:string" name="residence-address"/>
+                <xs:element name="citizenship-list">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="citizenship" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:string" name="country-name"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

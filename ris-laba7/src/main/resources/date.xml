@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="toDays" class="com.bsuir.converters.ToDayConverter"/>
+    <bean id="toMonths" class="com.bsuir.converters.ToMonthConverter"/>
+    <bean id="toWeeks" class="com.bsuir.converters.ToWeekConverter">
+        <property name="dayConverter" ref="toDays"/>
+    </bean>
+    <bean id="toHours" class="com.bsuir.converters.ToHourConverter">
+        <property name="dayConverter" ref="toDays"/>
+    </bean>
+    <bean id="toMinutes" class="com.bsuir.converters.ToMinuteConverter">
+        <property name="toHourConverter" ref="toHours"/>
+    </bean>
+    <bean id="toSeconds" class="com.bsuir.converters.ToSecondConverter">
+        <property name="minuteConverter" ref="toMinutes"/>
+    </bean>
+</beans>

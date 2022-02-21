@@ -1,0 +1,15 @@
+dto\Person$CitizenshipList.class
+util\EntityManagerUtil.class
+converter\XmlConverter.class
+dto\Person$ResidenceTowns.class
+converter\JsonConverter.class
+dto\Person$CitizenshipList$Citizenship.class
+entity\Person.class
+entity\Town.class
+converter\PersonConverter.class
+dto\Person$ResidenceTowns$ResidenceTown.class
+dto\Person.class
+Main.class
+dto\ObjectFactory.class
+service\PersonService.class
+entity\Citizenship.class

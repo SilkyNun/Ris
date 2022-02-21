@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<person>
+    <name>Denis</name>
+    <surname>Nikiforov</surname>
+    <patronymic>Ivanovich</patronymic>
+    <birthday>2001-06-20</birthday>
+    <male>true</male>
+    <passport-series>KB</passport-series>
+    <passport-number>2277634</passport-number>
+    <residence-towns>
+        <residence-town>
+            <name>Minsk</name>
+        </residence-town>
+        <residence-town>
+            <name>Mogilev</name>
+        </residence-town>
+        <residence-town>
+            <name>Shklov</name>
+        </residence-town>
+    </residence-towns>
+    <current-living-address>Kozlova, 33</current-living-address>
+    <home-telephone>33-02-24</home-telephone>
+    <mobile-telephone>+375(29)840-32-32</mobile-telephone>
+    <residence-address>Mogilev, Mironova 44</residence-address>
+    <citizenship-list>
+        <citizenship>
+            <country-name>Belarus</country-name>
+        </citizenship>
+        <citizenship>
+            <country-name>Russia</country-name>
+        </citizenship>
+        <citizenship>
+            <country-name>Ukraine</country-name>
+        </citizenship>
+    </citizenship-list>
+</person>
